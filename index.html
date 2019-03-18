@@ -1,0 +1,67 @@
+<!--   
+	Project Name: JS30 Flex Gallery
+	Project URL: http://dcjwest.github.io/...
+	Description: Responsive & Interactive Image Gallery
+-->
+
+<!-- =================================== -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Flex Gallery</title>
+	<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<!-- Main Panel Container -->
+	<div id="panels" class="flex-container">
+		<div id="panel1" class="panel flex-container">
+			<p class="flex-container">Hey</p>
+			<p class="flex-container">Let's</p>
+			<p class="flex-container">Dance</p>
+		</div>
+		<div id="panel2" class="panel flex-container">
+			<p class="flex-container">Give</p>
+			<p class="flex-container">Take</p>
+			<p class="flex-container">Receive</p>
+		</div>
+		<div id="panel3" class="panel flex-container">
+			<p class="flex-container">Experience</p>
+			<p class="flex-container">It</p>
+			<p class="flex-container">Today</p>
+		</div>
+		<div id="panel4" class="panel flex-container">
+			<p class="flex-container">Give</p>
+			<p class="flex-container">All</p>
+			<p class="flex-container">You can</p>
+		</div>
+		<div id="panel5" class="panel flex-container">
+			<p class="flex-container">Life</p>
+			<p class="flex-container">In</p>
+			<p class="flex-container">Motion</p>
+		</div>
+	</div>
+	<script>
+		const panels = document.querySelectorAll(".panel");
+
+		//Slide panel open when clicked
+		function toggleOpen(){
+			this.classList.toggle("open");
+		}
+
+		//Trigger upper/lower panel word animations
+		function toggleWords(e){
+			if (e.propertyName.includes("flex")){
+				this.classList.toggle("open-words");
+			}
+		}
+
+		//Event Listeners
+		panels.forEach(panel => panel.addEventListener("click", toggleOpen));
+		panels.forEach(panel => panel.addEventListener("transitionend", toggleWords));
+	</script>
+</body>
+</html>

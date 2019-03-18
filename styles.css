@@ -1,0 +1,96 @@
+/*   
+	Project Name: JS30 Flex Gallery
+	Project URL: http://dcjwest.github.io/...
+	Description: Responsive & Interactive Image Gallery
+*/
+
+/* =================================== */
+
+/* General Styles */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	box-sizing: border-box;
+	font-size: 20px;
+	height: 100vh;
+}
+
+/* Flex Style Template */
+.flex-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Main Panel Container */
+#panels {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+/* Individual Panel Styles */
+.panel {
+	background-position: center;
+	background-size: cover;
+	box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+	color: #fff;
+	flex: 1;
+	flex-direction: column;
+	font-size: 2vw;
+	height: 100%;
+	text-align: center;
+	transition:
+		font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+		flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        background 0.2s;
+}
+
+.panel:hover {cursor: pointer;}
+
+/* Panel Style After Click */
+.panel.open {
+	flex: 4;
+	font-size: 4vw;
+}
+
+/* Flex Children */
+.panel > * {
+	flex: 1 0 auto;
+	margin: 0;
+	transition: transform 0.3s;
+	width: 100%;
+}
+
+
+.panel > *:first-child { transform: translateY(-100%); }
+.panel > *:last-child { transform: translateY(100%); }
+.panel.open-words > *:first-child { transform: translateY(0); }
+.panel.open-words > *:last-child { transform: translateY(0); }
+
+
+.panel p {
+	font-family: 'Amatic SC', sans-serif;
+	font-size: 2em;
+	text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+	text-transform: uppercase;
+}
+
+.panel p:nth-child(2){
+	font-size: 4em;
+}
+
+/*@media screen and (orientation: landscape){
+	#panels {flex-direction: row;}
+	.panel {flex-direction: }
+}*/
+
+/* Panel Images */
+#panel1 {background-image: url("https://images.unsplash.com/photo-1535361362310-e3e5f70d4688?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80");}
+#panel2 {background-image: url("https://images.unsplash.com/photo-1486347054965-e51882f34710?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80");}
+#panel3 {background-image: url("https://images.unsplash.com/photo-1542583934-198f8023bfa8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80");}
+#panel4 {background-image: url("https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80");}
+#panel5 {background-image: url("https://images.unsplash.com/photo-1541971868625-37ae36051aaa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80");}
